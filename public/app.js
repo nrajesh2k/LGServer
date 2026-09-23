@@ -192,6 +192,25 @@ async function setupPayLaterButton(instance, details) {
   });
 }
 
+async function setupVenmoButton(instance) {
+     const buttonEl = document.getElementById("venmo-button");
+     const session = instance.createVenmoOneTimePaymentSession(
+       buildSessionOptions(buttonEl)
+     );
+
+     buttonEl.hidden = false;
+
+     buttonEl.addEventListener("click", async () => {
+       clearError();
+       closeModal();
+       try {
+         await session.start({ presentationMode: "popup" }, createOrder());
+       } catch (error) {
+         console.error("Venmo session start error:", error);
+         showError("Couldn't open Venmo. Check your popup blocker and try again.");
+       }
+     });
+   }
 async function setupCardButton(instance) {
   const buttonEl = document.getElementById("paypal-card-button");
   const session = await instance.createPayPalGuestOneTimePaymentSession(
