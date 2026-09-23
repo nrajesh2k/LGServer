@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order confirmed</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Payment successful 🎉</h1>
+    <p id="order-id" class="hint"></p>
+    <a href="/" class="btn btn-primary" style="display:inline-block;text-align:center;text-decoration:none;">
+      Back to store
+    </a>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("order-id").textContent =
+      "Order ID: " + (params.get("orderId") || "unknown");
+  </script>
+</body>
+</html>

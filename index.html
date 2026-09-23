@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout · PayPal JS SDK v6</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <main class="page">
+    <h1>Demo Checkout</h1>
+    <div class="order-summary">
+      <span>Wireless Keyboard</span>
+      <strong id="order-total">$49.99</strong>
+    </div>
+    <button id="open-modal-btn" class="btn btn-primary" type="button">
+      Pay now
+    </button>
+    <p class="hint">Clicking "Pay now" opens a custom modal with the eligible
+      payment buttons rendered by the PayPal JS SDK v6.</p>
+  </main>
+
+  <!-- Custom payment modal -->
+  <div id="payment-modal" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-header">
+        <h2 id="modal-title">Choose a payment method</h2>
+        <button id="modal-close-btn" class="modal-close" type="button" aria-label="Close">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <p id="eligibility-status" class="status-line">Checking available payment methods…</p>
+
+        <div class="payment-buttons">
+          <!-- PayPal button -->
+          <paypal-button id="paypal-button" hidden></paypal-button>
+
+          <!-- Pay Later button -->
+          <paypal-pay-later-button id="paypal-paylater-button" hidden></paypal-pay-later-button>
+
+          <!-- Debit / Credit card (guest) button -->
+          <paypal-basic-card-container>
+            <paypal-basic-card-button id="paypal-card-button" hidden>
+              Debit or Credit Card
+            </paypal-basic-card-button>
+          </paypal-basic-card-container>
+        </div>
+
+        <p id="payment-error" class="error-message" hidden></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js" defer></script>
+  <!--
+    Sandbox script for local testing. Swap for
+    https://www.paypal.com/web-sdk/v6/core in production.
+  -->
+  <script
+    async
+    src="https://www.sandbox.paypal.com/web-sdk/v6/core"
+    onload="window.dispatchEvent(new Event('paypal-sdk-loaded'))"
+  ></script>
+</body>
+</html>
