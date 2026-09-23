@@ -237,6 +237,9 @@ async function renderEligibleButtons() {
       setupPayLaterButton(instance, paymentMethods.getDetails("paylater"))
     );
   }
+  if (paymentMethods.isEligible("venmo")) {
+     setups.push(setupVenmoButton(instance));
+   }
   if (paymentMethods.isEligible("card")) {
     setups.push(setupCardButton(instance));
   }
