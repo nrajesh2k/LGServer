@@ -105,7 +105,7 @@ async function initializeSdk() {
 
   sdkInstance = await window.paypal.createInstance({
     clientId: config.clientId,
-    components: ["paypal-payments", "paypal-guest-payments"],
+    components: ["paypal-payments", "venmo-payments", "paypal-guest-payments"],
     pageType: "checkout",
   });
 
