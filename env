@@ -1,6 +1,6 @@
 # Get these from https://developer.paypal.com/dashboard/applications/sandbox
-PAYPAL_CLIENT_ID=your_sandbox_client_id
-PAYPAL_CLIENT_SECRET=your_sandbox_client_secret
+PAYPAL_CLIENT_ID=AXFbHf_xrcbc2INyIMZa_Zuu9uzArWbY8fTNuR-O1w3eJi2Zf4w-yCyU-LkmC67CpUUqzIr-aW8vZIvr
+PAYPAL_CLIENT_SECRET=EJrg_ryAWw6ADHZ4haCVvpoDzxqR5K9Qimwu1sUmkJQbFLRjSZM05EJZP7b4UlNl2UhZmK9QxZloPONE
 
 # Sandbox by default. Use https://api-m.paypal.com for production.
 PAYPAL_API_BASE=https://api-m.sandbox.paypal.com
