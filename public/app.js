@@ -186,7 +186,7 @@ async function setupCardButton(instance) {
     try {
       // Same click tick as the modal close — this is what keeps the
       // popup from getting blocked by the browser's user-activation rules.
-      await session.start({ presentationMode: "popup" }, createOrder());
+      await session.start({ presentationMode: "auto" }, createOrder());
     } catch (error) {
       console.error("Card session start error:", error);
       showError("Couldn't open the card checkout. Please try again.");
