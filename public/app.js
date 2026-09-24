@@ -170,6 +170,30 @@ async function setupPayPalButton(instance) {
   });
 }
 
+async function setupCardButton(instance) {
+  const buttonEl = document.getElementById("paypal-card-button");
+
+  // Guest checkout — buyer pays with a card without a PayPal login.
+  const session = await instance.createPayPalGuestOneTimePaymentSession(
+    buildSessionOptions(buttonEl)
+  );
+
+  buttonEl.hidden = false;
+
+  buttonEl.addEventListener("click", async () => {
+    clearError();
+    closeModal();          // synchronous DOM change only — no await before this line
+    try {
+      // Same click tick as the modal close — this is what keeps the
+      // popup from getting blocked by the browser's user-activation rules.
+      await session.start({ presentationMode: "popup" }, createOrder());
+    } catch (error) {
+      console.error("Card session start error:", error);
+      showError("Couldn't open the card checkout. Please try again.");
+    }
+  });
+}
+
 async function setupPayLaterButton(instance, details) {
   const buttonEl = document.getElementById("paypal-paylater-button");
   const session = instance.createPayLaterOneTimePaymentSession(
