@@ -235,6 +235,7 @@ async function setupVenmoButton(instance) {
        }
      });
    }
+/*
 async function setupCardButton(instance) {
   const buttonEl = document.getElementById("paypal-card-button");
   const session = await instance.createPayPalGuestOneTimePaymentSession(
@@ -253,7 +254,7 @@ async function setupCardButton(instance) {
       showError("Couldn't open the card checkout. Please try again.");
     }
   });
-}
+}*/
 
 /* ---------------------------------------------------------------- *
  * Eligibility check — only wire up buttons that are actually eligible
