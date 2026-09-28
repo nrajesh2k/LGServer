@@ -169,7 +169,7 @@ async function setupPayPalButton(instance) {
     }
   });
 }
-
+/*
 async function setupCardButton(instance) {
   const buttonEl = document.getElementById("paypal-card-button");
 
@@ -193,7 +193,7 @@ async function setupCardButton(instance) {
     }
   });
 }
-
+*/
 async function setupPayLaterButton(instance, details) {
   const buttonEl = document.getElementById("paypal-paylater-button");
   const session = instance.createPayLaterOneTimePaymentSession(
@@ -284,10 +284,11 @@ async function renderEligibleButtons() {
   if (paymentMethods.isEligible("venmo")) {
      setups.push(setupVenmoButton(instance));
    }
+  /*
   if (paymentMethods.isEligible("card")) {
     setups.push(setupCardButton(instance));
   }
-
+*/
   await Promise.all(setups);
   statusLine.textContent = setups.length
     ? "Select a payment method below."
